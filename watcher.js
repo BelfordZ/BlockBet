@@ -25,7 +25,12 @@ eventListener.on("data", async (event) => {
   const jqFilter = event.returnValues[1];
 
   console.log('got params:', url, jqFilter);
-  const result = await fetchit(url);
+  try {
+    const result = await fetchit(url);
+  } catch (e) {
+    console.log('fetch error (could just be no block yet)')
+    console.log(e);
+  }
 
   const valueOfInterest = await jq.run(jqFilter, result, {input: 'json'});
 
