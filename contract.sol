@@ -1,9 +1,6 @@
 pragma solidity ^0.4.0;
 
 contract Oracle {
-    //bytes public withJqFilter;
-    //bytes public urlToFetch;
-
     event UrlToFetch(string urlToFetch, string jqFilter);
 
     function fetch(string urlToFetch, string jqFilter) public {
